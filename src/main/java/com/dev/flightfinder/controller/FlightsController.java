@@ -36,7 +36,7 @@ public class FlightsController {
      * @return ResponseEntity<FlightResults>
      */
 	
-	@GetMapping("/flights")
+	@GetMapping(value="/flights",produces="application/json")
 	@ApiOperation(value = "Gets flight results.", notes = "Provides the itineraries with the flight details")
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message="Success|OK")

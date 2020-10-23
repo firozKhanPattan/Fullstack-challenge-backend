@@ -1,0 +1,23 @@
+openapi: 3.0.0
+info:
+  title: Full stack dev challenge
+  description: Provides the flight details of the to and fro travel.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/flight-finder
+    description: Optional server description, e.g. Main (production) server
+  
+paths:
+  /flights:
+    get:
+      summary: Gets flight results.
+      description: Provides the itineraries with the flight details.
+      responses:
+        '200':    # status code
+          description: A JSON of Flights
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
