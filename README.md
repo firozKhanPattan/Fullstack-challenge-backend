@@ -5,6 +5,8 @@ Steps to Run :
 
 Clone this repository.
 
+https://github.com/firozKhanPattan/Fullstack-challenge-backend.git
+
 Please make sure, the jdk and maven versions are 1.8.x and 3.x respectively.
 
 Build the application using the below command.
