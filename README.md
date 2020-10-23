@@ -18,6 +18,12 @@ The rest API can be accessed through the below URL.
 
 http://localhost:8080/flight-finder/flights
 
+If you choose to run on different port: for the fron tend to get the data from backend please update the port number in Package.json file in proxy.
+
+The below entry has to be update in package.json file 
+
+"proxy": "http://localhost:8080",
+
 For SwaggerUI documentation, use the below link
 
 http://localhost:8080/swagger-ui.html
