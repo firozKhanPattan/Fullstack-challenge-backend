@@ -24,6 +24,12 @@ http://localhost:8080/swagger-ui.html
 
 Once this is done,
 
+Steps to run front end:
+
+clone the fornt end repository
+
+Run the front end usin npm start
+
 Access the front end using http://localhost:3000/
 
 Note:Front end cannot be accessed with out running the service as the data is served from service.
@@ -39,4 +45,6 @@ Api documentation can be found from swagger-ui.html.
 Api specific can be found in swagger.yml file
 
 Run as Spring boot application.
+
+
 
