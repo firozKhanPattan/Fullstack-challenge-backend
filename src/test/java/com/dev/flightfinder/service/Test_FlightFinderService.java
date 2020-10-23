@@ -2,6 +2,7 @@ package com.dev.flightfinder.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Optional;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,6 +22,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import junit.framework.TestCase;
 
@@ -44,10 +46,10 @@ public class Test_FlightFinderService extends TestCase{
 	@Test
 	public void test_getFlightResults() throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
-		//FlightFinderService flightFinderService = Mockito.mock(FlightFinderService.class);
 		ClassLoader loader = this.getClass().getClassLoader();
 		FlightResults flightResults = mapper.readValue(new File(loader.getSystemResource("data/flights.json").getFile()), new TypeReference<FlightResults>() {});
-		Mockito.when(flightFinderDao.getItineraries()).thenReturn(flightResults);
+		Optional<FlightResults> result = Optional.of(flightResults);
+		Mockito.when(flightFinderDao.getItineraries()).thenReturn(result);
 		FlightResults results = flightFinderService.getFlightResults();
 		Assert.assertNotNull(results);
 	}

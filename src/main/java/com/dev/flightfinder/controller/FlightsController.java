@@ -1,7 +1,6 @@
 package com.dev.flightfinder.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,15 +15,17 @@ import com.dev.flightfinder.service.FlightFinderService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("flight-finder")
-@Api(tags="flights")
+@Api(value="Flights Controller")
 @CrossOrigin("*")
 public class FlightsController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(FlightsController.class);
-
 	@Autowired
 	private FlightFinderService flightFinderService;
 	
@@ -37,9 +38,13 @@ public class FlightsController {
 	
 	@GetMapping("/flights")
 	@ApiOperation(value = "Gets flight results.", notes = "Provides the itineraries with the flight details")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message="Success|OK")
+	})
 	public ResponseEntity<FlightResults> getFlights() throws FlightFinderException{
 		
-		logger.info("Fetching Flight details - FlightsController");
+		log.debug("Fetching Flight details - FlightsController");
+		
 		
 		FlightResults results = flightFinderService.getFlightResults();
 		

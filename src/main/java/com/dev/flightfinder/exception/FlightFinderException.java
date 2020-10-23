@@ -1,8 +1,5 @@
 package com.dev.flightfinder.exception;
 
-import org.springframework.web.bind.annotation.ControllerAdvice;
-
-
 public class FlightFinderException extends RuntimeException{
 	
 	/**
@@ -12,6 +9,7 @@ public class FlightFinderException extends RuntimeException{
 	
 	private String exceptionMessage;
 	private String exceptionDetails;
+	
 	public FlightFinderException() {
 		
 	}
